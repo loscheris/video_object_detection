@@ -4,8 +4,9 @@ import os.path
 
 
 #extract frames from video
-video_path = '~/final_project/data/MSVD/YouTubeClips'
-video_file_name = 'PQbkdRbir0M_45_53.avi'
+#video_path = '/Users/banzhiyong/final_project/data/MSVD/YouTubeClips'
+video_path = '/Users/banzhiyong/Desktop'
+video_file_name = '10.52.18.avi'
 video_full_path = os.path.join(video_path, video_file_name)
 
 frame_path = './input_videos/frames'

@@ -69,7 +69,7 @@ def process(frame_path, frame_name, model_name):
                 # Visualization of the results of a detection.
 
                 result[count] ={}
-                print 'Processing frame '+ str(count)
+                print 'Processing frame '+ str(count) + '/' + str(len(TEST_IMAGE_PATHS))
                 temp_classes = np.squeeze(classes).astype(np.int32)
 
                 for i in range (min(no_objects_detected, np.squeeze(boxes).shape[0])):
