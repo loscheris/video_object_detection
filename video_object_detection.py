@@ -1,12 +1,12 @@
 from extract_frames import extract
 from process_image import process
 import os.path
-
+import sys
 
 #extract frames from video
-#video_path = '/Users/banzhiyong/final_project/data/MSVD/YouTubeClips'
-video_path = '/Users/banzhiyong/Desktop'
-video_file_name = '10.52.18.avi'
+video_path = '/Users/banzhiyong/final_project/data/MSVD/YouTubeClips'
+# video_path = '/Users/banzhiyong/Desktop/video'
+video_file_name = '5OuYhq6Zl0g_0_10.avi'
 video_full_path = os.path.join(video_path, video_file_name)
 
 frame_path = './input_videos/frames'
@@ -29,9 +29,9 @@ print result
 
 # Select labels for each second of the video
 total_no_frame = extract_fps*duration
+
 objects = {}
 retain_prob = 70
-
 for i in range(int(duration)):
     base = i*extract_fps
     objects[i] = {}

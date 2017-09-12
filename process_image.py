@@ -11,6 +11,7 @@ from matplotlib import pyplot as plt
 from PIL import Image
 from utils import label_map_util
 from utils import visualization_utils as vis_util
+import time
 
 def process(frame_path, frame_name, model_name):
     # model path
@@ -48,6 +49,7 @@ def process(frame_path, frame_name, model_name):
         with tf.Session(graph=detection_graph) as sess:
             count = 0
             for image_path in TEST_IMAGE_PATHS:
+                t1 = time.time()
                 image = Image.open(image_path)
                 # the array based representation of the image will be used later in order to prepare the
                 # result image with boxes and labels on it.
@@ -69,7 +71,9 @@ def process(frame_path, frame_name, model_name):
                 # Visualization of the results of a detection.
 
                 result[count] ={}
-                print 'Processing frame '+ str(count) + '/' + str(len(TEST_IMAGE_PATHS))
+                t2 = time.time()
+                print 'Processing frame '+ str(count) + '/' + str(len(TEST_IMAGE_PATHS)) + ': ' + str(t2-t1) 
+
                 temp_classes = np.squeeze(classes).astype(np.int32)
 
                 for i in range (min(no_objects_detected, np.squeeze(boxes).shape[0])):
